@@ -20,8 +20,8 @@ def create_message_text(completed_modules, modules_progress, time):
     Пока что я улучшаю свои навыки и узнаю много нового!
     """
 
-    availability_completed_modules = input('У вас есть завершенные модули (Да / Нет): ')
-    if availability_completed_modules.lower() == 'да':
+    has_completed_modules = input('У вас есть завершенные модули (Да / Нет): ')
+    if has_completed_modules.lower() == 'да':
         return completed_modules_text
     else:
         return progress_modules_text
@@ -61,7 +61,8 @@ def main():
     except Exception as e:
         print(f"Произошла ошибка: {e}")
     finally:
-        server.quit()
+        if server:
+            server.quit()
 
 
 if __name__ == '__main__':
